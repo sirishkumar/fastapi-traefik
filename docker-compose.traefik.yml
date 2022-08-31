@@ -9,9 +9,6 @@ services:
       # Listen on port 443, default for HTTPS
       - 443:443
     restart: always
-    environment:
-      - USERNAME: sirishkumar
-      - HASHED_PASSWORD: aGF2aXNoYQo=
     labels:
       # Enable Traefik for this service, to make it available in the public network
       - traefik.enable=true
@@ -37,7 +34,7 @@ services:
       - traefik.http.routers.traefik-dashboard-http.middlewares=https-redirect
       # admin-auth middleware with HTTP Basic auth
       # Using the environment variables USERNAME and HASHED_PASSWORD
-      - traefik.http.middlewares.admin-auth.basicauth.users=${USERNAME?Variable not set}:${HASHED_PASSWORD?Variable not set}
+      - traefik.http.middlewares.admin-auth.basicauth.users=sirishkumar:test1234!
       # Enable HTTP Basic auth, using the middleware created above
       - traefik.http.routers.traefik-dashboard-https.middlewares=admin-auth
     volumes:

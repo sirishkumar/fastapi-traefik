@@ -9,6 +9,9 @@ services:
       # Listen on port 443, default for HTTPS
       - 443:443
     restart: always
+    environment:
+      - USERNAME: sirishkumar
+      - HASHED_PASSWORD: aGF2aXNoYQo=
     labels:
       # Enable Traefik for this service, to make it available in the public network
       - traefik.enable=true

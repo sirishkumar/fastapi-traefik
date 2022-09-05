@@ -42,12 +42,12 @@ services:
       - traefik.http.services.streamlit.loadbalancer.server.port=80
       # Make Traefik use this domain in HTTP
       - traefik.http.routers.streamlit-http.entrypoints=http
-      - traefik.http.routers.streamlit-http.rule=Host(`streamlit.fastapi-with-traefik.example.com`)
+      - traefik.http.routers.streamlit-http.rule=Host(`streamlit.fastapi-traefik.bethala.net`)
       # Use the traefik-public network (declared below)
       - traefik.docker.network=traefik-public
       # Make Traefik use this domain in HTTPS
       - traefik.http.routers.streamlit-https.entrypoints=https
-      - traefik.http.routers.streamlit-https.rule=Host(`streamlit.fastapi-with-traefik.example.com`)
+      - traefik.http.routers.streamlit-https.rule=Host(`streamlit.fastapi-traefik.bethala.net`)
       - traefik.http.routers.streamlit-https.tls=true
       # Use the "le" (Let's Encrypt) resolver
       - traefik.http.routers.streamlit-https.tls.certresolver=le
